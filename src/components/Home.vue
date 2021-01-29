@@ -1,6 +1,6 @@
 <template>
   <div>
-    Halloween
+    哈哈哈哈哈哈哈
     <el-button type="info" @click="logout"> 退出 </el-button>
   </div>
 </template>
