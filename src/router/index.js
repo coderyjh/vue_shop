@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
-// import { from } from 'core-js/fn/array'
+import Welcome from '../components/Welcome.vue'
+import Users from '../components/user/Users.vue'
+
 Vue.use(VueRouter)
 
 const routes = [{
@@ -15,7 +17,18 @@ const routes = [{
     },
     {
         path: '/Home',
-        component: Home
+        component: Home,
+        redirect: '/welcome',
+        children: [{
+                // 这 Home 组件里展示 Welcome 子组件
+                path: '/welcome',
+                component: Welcome
+            },
+            {
+                path: '/users',
+                component: Users
+            }
+        ]
     }
 ]
 
@@ -23,15 +36,16 @@ const router = new VueRouter({
     routes
 })
 
-// 挂载路由导航守卫，to 表示将要访问的路径，from 表示从哪里来，next 是下一个要做的操作
 router.beforeEach((to, from, next) => {
-    // 直接放行
+    // to 要访问的路径
+    // from 从哪里来的
+    // next() 直接放行，next('/login') 表示跳转
+    // 要访问 /login 的话那直接放行
     if (to.path === '/login') return next()
-        // 获取 token
     const tokenStr = window.sessionStorage.getItem('token')
-        // token 不存在，跳转登录界面
+        // token 不存在那就跳转到登录页面
     if (!tokenStr) return next('/login')
-        // token 存在，放行
+        // 否则 token 存在那就放行
     next()
 })
 
