@@ -22,7 +22,7 @@ const routes = [{
         component: Home,
         redirect: '/welcome',
         children: [{
-                // 这 Home 组件里展示 Welcome 子组件
+                // 这 Home 组件里展示 Welcome 子组件  // 这 Home 组件里展示 Welcome 子组件
                 path: '/welcome',
                 component: Welcome
             },
