@@ -6,7 +6,8 @@ import Welcome from '../components/Welcome.vue'
 import Users from '../components/user/Users.vue'
 import Rights from '../components/power/Rights.vue'
 import Roles from '../components/power/Roles.vue'
-
+import Cate from '../components/goods/Cate.vue'
+import Params from '../components/goods/Params.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -22,7 +23,7 @@ const routes = [{
         component: Home,
         redirect: '/welcome',
         children: [{
-                // 这 Home 组件里展示 Welcome 子组件  // 这 Home 组件里展示 Welcome 子组件
+                // 这 Home 组件里展示 Welcome 子组件
                 path: '/welcome',
                 component: Welcome
             },
@@ -37,6 +38,14 @@ const routes = [{
             {
                 path: '/roles',
                 component: Roles
+            },
+            {
+                path: '/categories',
+                component: Cate
+            },
+            {
+                path: '/params',
+                component: Params
             }
         ]
     }
@@ -58,5 +67,4 @@ router.beforeEach((to, from, next) => {
         // 否则 token 存在那就放行
     next()
 })
-
 export default router
