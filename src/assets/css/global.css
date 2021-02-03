@@ -4,6 +4,7 @@ body,
     height: 100%;
     margin: 0;
     padding: 0;
+    min-width: 1366px;
 }
 
 .el-breadcrumb {
@@ -23,10 +24,21 @@ body,
     margin-top: 15px;
 }
 
+
+/* 解决 cascader Bug */
+
 .el-cascader-panel {
     height: 200px;
 }
 
-.el-scrollbar__wrap {
-    overflow-x: hidden;
+.el-steps {
+    margin: 15px 0;
+}
+
+.el-step__title {
+    font-size: 13px;
+}
+
+.ql-editor {
+    min-height: 300px;
 }
